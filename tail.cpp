@@ -1,3 +1,6 @@
+/*
+An implementation of the tail unix program.
+*/
 
 #include <vector>
 #include <iostream>
