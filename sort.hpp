@@ -1,4 +1,8 @@
+/*
+Yea I like purely functional programming. OOP is great and all but its not alway appropriate.
 
+My first programming language was Java....
+*/
 #include <memory>
 #include <vector>
 #include <iostream>
