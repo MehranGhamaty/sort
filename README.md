@@ -1,3 +1,3 @@
 # sort
 
-A few different programs playing with sorting techniques.
+A few different programs for testing sorting techniques.
