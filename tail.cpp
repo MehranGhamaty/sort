@@ -1,5 +1,5 @@
 /*
-An implementation of the tail unix program.
+An implementation of the tail posix program.
 */
 
 #include <vector>
