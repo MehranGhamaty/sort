@@ -8,7 +8,7 @@ An implementation of the tail posix program.
 #include <string>
 #include <algorithm>
 
-bool isnewline(char c) {
+bool inline isnewline(char c) {
 	return c == '\n';
 }
 
@@ -25,7 +25,6 @@ void readend(std::ifstream &is, int blocksize, int nlinestoread) {
 	int adj = 0;
 
 	while(numlinesread < nlinestoread) {
-		//this line is a problem
 		is.seekg(offset, is.end);
 		is.read(buffer, toread);	
 
