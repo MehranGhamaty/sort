@@ -56,7 +56,7 @@ void printtreehelper(const std::unique_ptr<TreeNode<T>>& node, int level=0) {
 }
 
 template<typename T>
-void swap(std::vector<T> &A, int i, int j) {
+void flip(std::vector<T> &A, int i, int j) {
 	T tmp = A.at(i);
 	A.at(i) = A.at(j);
 	A.at(j) = tmp;
@@ -82,7 +82,7 @@ void maxheapify(std::vector<T> &heap, size_t i, size_t maxsize) {
 	if(r < maxsize and heap.at(r) > heap.at(largest)) largest = r;
 
 	if(largest != i) {
-		swap(heap, i, largest);
+		flip(heap, i, largest);
 		maxheapify(heap, largest, maxsize);	
 	}
 }
@@ -99,7 +99,7 @@ void heapsort(std::vector<T> &sortme) {
 	buildmaxheap(sortme);
 	size_t heapsize = sortme.size();
 	for(int i = sortme.size()-1; i>0; --i) {
-		swap(sortme, 0, i);
+		flip(sortme, 0, i);
 
 		maxheapify(sortme, 0, --heapsize);
 	}
@@ -111,7 +111,7 @@ T heapmaximum(std::vector<T> &maxheap) {
 }
 
 template<typename T>
-T extractmax(std::vector<T> &maxheap) {
+T extracttop(std::vector<T> &maxheap) {
 	T max = maxheap.at(0);
 	maxheap.at(0) = maxheap.at(maxheap.size()-1);
 	maxheap.erase(maxheap.end()-1);
@@ -128,11 +128,11 @@ int partition(std::vector<T> &sortme, int left, int right) {
 	for(int j = left; j < right; ++j) {
 		if(sortme.at(j) <= x) {
 			++i;
-			swap(sortme, i, j);	
+			flip(sortme, i, j);	
 		}
 	}
 
-	swap(sortme, i+1, right);
+	flip(sortme, i+1, right);
 	return i+1;
 }
 
@@ -185,9 +185,9 @@ int main(int argc, char *argv[]) {
 
 	for(int e : vec) {std::cout << e << "\t"; } std::cout << std::endl;
 
-	int max = extractmax(vec);
+	int top = extracttop(vec);
 
-	std::cout << "max is " << max << std::endl;
+	std::cout << "top is " << top << std::endl;
 	for(int e : vec) {std::cout << e << "\t"; } std::cout << std::endl;
 		
 	/*
