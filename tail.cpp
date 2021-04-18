@@ -1,5 +1,6 @@
 /*
 An implementation of the tail posix program.
+Don't read into this.
 */
 
 #include <vector>
