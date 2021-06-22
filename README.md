@@ -1,3 +1,3 @@
 # sort
 
-A few different programs for testing sorting techniques.
+Different programs for testing sorting techniques, House.
