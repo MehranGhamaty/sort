@@ -15,16 +15,16 @@ template<typename T>
 std::unique_ptr<TreeNode<T>> createpostorderhelper(const std::vector<T> &init, int low, int high) {
 	std::unique_ptr<TreeNode<T>> n = std::unique_ptr<TreeNode<T>>(new TreeNode<T>(init.at(low)));
 	if(low >= high) return n;
-	int rightsubtreestart = high;
+	int righttreestart = high; 
 	for(int i = low+1; i < high; ++i) {
 		if(init.at(i) > init.at(low)) {
-			rightsubtreestart = i; break;
+			righttreestart = i; break;
 		}
 	}
 
-	n->left = createpostorderhelper<T>(init, low+1, rightsubtreestart-1);
-	if(rightsubtreestart < high) {
-		n->right = createpostorderhelper<T>(init, rightsubtreestart, high);
+	n->left = createpostorderhelper<T>(init, low+1, righttreestart-1);
+	if(righttreestart < high) {
+		n->right = createpostorderhelper<T>(init, righttreestart, high);
 	}
 	return n;
 }
@@ -56,7 +56,7 @@ void printtreehelper(const std::unique_ptr<TreeNode<T>>& node, int level=0) {
 }
 
 template<typename T>
-void flip(std::vector<T> &A, int i, int j) {
+void rotate(std::vector<T> &A, int i, int j) {
 	T tmp = A.at(i);
 	A.at(i) = A.at(j);
 	A.at(j) = tmp;
@@ -67,11 +67,11 @@ inline size_t parent(size_t i) {
 }
 
 inline size_t left(size_t i) {
-	return ((i) << 1) + 1;
+	return (i << 1) + 1;
 }
 
 inline size_t right(size_t i) {
-	return ((i) << 1) + 2;
+	return (i << 1) + 2;
 }
 
 template<typename T>
